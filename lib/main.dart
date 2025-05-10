@@ -280,12 +280,12 @@ class _FoodHomePageState extends State<FoodHomePage> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: categories.map<Widget>((cat) {
-                  final isSelected = selectedCategoryId == cat['id'];
+                children: categories.map<Widget>((category) {
+                  final isSelected = selectedCategoryId == category['id'];
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: ChoiceChip(
-                      label: Text(cat['name']),
+                      label: Text(category['name']),
                       selected: isSelected,
                       selectedColor: Colors.teal.shade600,
                       backgroundColor: Colors.grey.shade200,
@@ -295,7 +295,7 @@ class _FoodHomePageState extends State<FoodHomePage> {
                       ),
                       onSelected: (_) {
                         setState(() {
-                          selectedCategoryId = isSelected ? null : cat['id'];
+                          selectedCategoryId = isSelected ? null : category['id'];
                         });
                       },
                     ),
